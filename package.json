@@ -1,0 +1,27 @@
+{
+  "author": "drk <drk@diy.org> (drk.es)",
+  "name": "transformit",
+  "description": "Module for async transloadit jobs.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/derekr/transformit",
+  "repository": {
+    "url": "https://github.com/derekr/transformit"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "beefy ../lib/index.js:transformit.js --cwd ./examples -- -r ./lib/index.js:transformit",
+    "test": "tap ./test/*.js"
+  },
+  "devDependencies": {
+    "beefy": "~0.4.1",
+    "browserify": "~2.26.0",
+    "tap": "~0.3.1",
+    "tape": "~1.0.4",
+    "tapedeck": "~0.3.4",
+    "xhr": "~1.2.3"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">=0.6"
+  }
+}
