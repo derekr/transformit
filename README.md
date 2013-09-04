@@ -1,5 +1,5 @@
 ## transformit
-#### Module for async transloadit jobs.
+#### Async transloadit uploads.
 
 ## Usage
 
