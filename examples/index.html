@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>transformit Examples</title>
+</head>
+<body>
+
+<form action="test" method="post" enctype="multipart/form-data" accept-charset="utf-8" id="test-form">
+<!--     <input type="file" name="test-file"> -->
+    <input type="file" name="test-video">
+
+    <input type="submit" value="Submit">
+</form>
+
+<script type="text/javascript" src="transformit.js"></script>
+
+<script type="text/javascript">
+    var transformit = require('transformit')('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+
+    var transformed = transformit(document.getElementById('test-form'), {
+        'trigger': false,
+        'fields': {
+            'encoder_key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+        },
+        'templateId': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    });
+
+    
+
+    transformed.on('progress', function (received, expected, assembly) {
+        console.log(arguments);
+        console.log((received / expected) * 100);
+    });
+
+    transformed.on('success', function (assembly) {
+        console.log(assembly);
+    });
+
+    transformed.on('error', function (err) {
+        console.log(err);
+    });
+</script>
+</body>
+</html>
