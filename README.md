@@ -1,6 +1,10 @@
 ## transformit
 #### Async transloadit uploads.
 
+A convenience wrapper for binding form events and uploading files to transloadit.
+Calling the `transformit` function will return a `transpulseit` instance you can use to 
+check the progress of your assembly.
+
 ## Usage
 
 ```js
@@ -14,8 +18,6 @@ var transformed = transformit(document.getElementById('test-form'), {
     'templateId': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 });
 
-
-
 transformed.on('progress', function (received, expected, assembly) {
     console.log(arguments);
     console.log((received / expected) * 100);
@@ -27,6 +29,12 @@ transformed.on('success', function (assembly) {
 
 transformed.on('error', function (err) {
     console.log(err);
+});
+
+transformed.appendField('beep', 'boop');
+
+transformed.upload(function (err) {
+    // called after all uploads are finished
 });
 ```
 
@@ -46,5 +54,4 @@ few other bells and whistles from the plugin.
 
 ## Dependencies
 
-The main dependencies are `jsonp` for making cross domain polling requests to transloadit and `async-form` which 
-provides an iframe fallback for browsers that don't support sending form data via xhr/jsonp.
+Currently dependent on a global jquery `$` object for use of the `jsonp` method.
