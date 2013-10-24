@@ -1,6 +1,9 @@
 ## transformit
 #### Async transloadit uploads.
 
+[![NPM](https://nodei.co/npm/transformit.png?compact=true)](https://nodei.co/npm/transformit/)
+![david-dm.png](https://david-dm.org/derekr/transformit.png)
+
 A convenience wrapper for binding form events and uploading files to transloadit.
 Calling the `transformit` function will return a `transpulseit` instance you can use to 
 check the progress of your assembly.

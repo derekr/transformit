@@ -7,9 +7,9 @@
   "repository": {
     "url": "https://github.com/derekr/transformit"
   },
-  "main": "./lib/index.js",
+  "main": "./index.js",
   "scripts": {
-    "start": "beefy ../lib/index.js:transformit.js --cwd ./examples -- -r ./lib/index.js:transformit",
+    "start": "beefy ../index.js:transformit.js --cwd ./examples -- -r ./index.js:transformit",
     "test": "tap ./test/*.js"
   },
   "devDependencies": {
@@ -24,6 +24,6 @@
     "node": ">=0.6"
   },
   "dependencies": {
-    "async-form": "~0.1.0"
+    "async-form": "~0.2.0"
   }
 }
