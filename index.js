@@ -229,6 +229,7 @@ Transformit.prototype.appendField = function (fieldName, val) {
         var $field = document.createElement('input');
         $field.name  = fieldName;
         $field.value = val;
+        $field.type  = 'hidden'; // must provide type for ie9
         this.$form.appendChild($field);
     }
 
