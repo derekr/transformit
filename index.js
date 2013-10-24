@@ -20,9 +20,9 @@ var util               = require('util');
 /**
  * Lib
  */
-var fetchBoredInstance = require('./bored-instance');
-var createAssemblyId   = require('./create-assembly-id');
-var pulser             = require('./pulser');
+var fetchBoredInstance = require('./lib/bored-instance');
+var createAssemblyId   = require('./lib/create-assembly-id');
+var pulser             = require('./lib/pulser');
 
 /**
  * Constants
@@ -81,8 +81,8 @@ Transformit.prototype.bindDomListeners = function () {
     var me = this;
 
     // Bow out
-    if (!this.trigger || 
-        (typeof FormData !== 'undefined' && this.$form instanceof FormData)) 
+    if (!this.trigger ||
+        (typeof FormData !== 'undefined' && this.$form instanceof FormData))
         return;
 
     // Submit
@@ -94,7 +94,7 @@ Transformit.prototype.bindDomListeners = function () {
             return false;
         };
     }
-    
+
     // Change
     function changeHandler () {
         me.upload();
@@ -112,7 +112,7 @@ Transformit.prototype.bindDomListeners = function () {
 
 /**
  * Asynchronously uploads the files contained in the form.
- * 
+ *
  * @param {function} callback
  */
 Transformit.prototype.upload = function (callback) {
@@ -126,13 +126,13 @@ Transformit.prototype.upload = function (callback) {
 };
 
 /**
- * Asynchronously sends $form to transloadit. This is dependent on 
+ * Asynchronously sends $form to transloadit. This is dependent on
  * having a bored instance url.
  *
  * @notes: https://github.com/transloadit/jquery-sdk/blob/master/js/lib/jquery.transloadit2.js#L126-L164
  *
  * @param {string} instance - Bored instance url
- * @param {function} callback 
+ * @param {function} callback
  */
 Transformit.prototype.sendForm = function (instance, callback) {
     var me = this;
@@ -161,7 +161,7 @@ Transformit.prototype.sendForm = function (instance, callback) {
 };
 
 /**
- * Creates a new pulse instance for the given assembly url and 
+ * Creates a new pulse instance for the given assembly url and
  * proxies all the relevent events.
  *
  * @param {string} assymblyUrl
@@ -200,9 +200,9 @@ Transformit.prototype.getParams = function (file) {
 /**
  * Returns template id based on options.templateId.
  *
- * If `options.templateId` is a function it will be provided the File object as 
+ * If `options.templateId` is a function it will be provided the File object as
  * the first argument w/ the Transformit instance as the context.
- * 
+ *
  * @param {File} file - File being uploaded.
  */
 Transformit.prototype.getTemplateId = function (file) {
@@ -218,7 +218,7 @@ Transformit.prototype.getTemplateId = function (file) {
 };
 
 /**
- * Dynamically append a field to the form after Transformit has been 
+ * Dynamically append a field to the form after Transformit has been
  * instantiated.
  *
  * @param {string} fieldName
@@ -230,10 +230,10 @@ Transformit.prototype.appendField = function (fieldName, val) {
         $field.name  = fieldName;
         $field.value = val;
         this.$form.appendChild($field);
-    } 
-    
-    if (typeof FormData !== 'undefined' 
-        && this.$form instanceof FormData) 
+    }
+
+    if (typeof FormData !== 'undefined'
+        && this.$form instanceof FormData)
         this.$form.append(fieldName, val);
 };
 
