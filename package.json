@@ -2,7 +2,7 @@
   "author": "drk <drk@diy.org> (drk.es)",
   "name": "transformit",
   "description": "Module for async transloadit jobs.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/derekr/transformit",
   "repository": {
     "url": "https://github.com/derekr/transformit"
